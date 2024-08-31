@@ -41,7 +41,7 @@ fs.mkdir("pages",(error)=>{
 
 fs.readdir("pages",(error,data)=>{
         if(error){
-            console.log("unale to delete");
+            console.log("unable to delete");
             
         }
         else{
