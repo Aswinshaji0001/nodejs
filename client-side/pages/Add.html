@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <style>
+        .nav{
+            width: 100%;
+            height: 7vh;
+            text-align: center;
+            background-color: #FBDA61;
+            background-image: linear-gradient(45deg, #FBDA61 0%, #FF5ACD 100%);
+            line-height: 7vh;
+            color: white;
+
+
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        table{
+            text-align: center;
+            
+        }
+        .con{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            width: 100%;
+            height: 80vh;
+
+        }
+        .con1{
+            padding: 2% 5%;
+            background-color: #FBDA61;
+            background-image: linear-gradient(45deg, #FBDA61 0%, #FF5ACD 100%);
+            border: 1px solid rgb(255, 253, 253);
+            border-radius: 10px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+          
+        }
+     
+        .input-box {
+                    margin-left: 20px;
+                    margin-top: 10px;
+                    padding: 10px 70px;
+                    border: 1px solid #ccc;
+                    border-radius: 8px;
+                    font-size: 16px;
+                    color: #333;
+                    background-color: #fff;
+                    transition: border-color 0.3s, box-shadow 0.3s;
+                    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+
+        .input-box:focus {
+                     border-color: #007bff;
+                     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+                     outline: none;
+        }
+
+        .input-box::placeholder {
+        color: #aaa;
+        }
+        .input-rad{
+            margin-top: 10px;
+            
+        }
+        .btn-don {
+                    margin-top: 10px;
+                    margin-right: 10px;
+                    padding: 12px 16px;
+                    background-color: #f0f0f0;
+                    color: #333;
+                    border: 1px solid #ccc;
+                    border-radius: 8px;
+                    background-color: #ffffff;
+        }
+
+        .btn-don:hover {
+                     background-color: #008cff;
+                    border-color: #bbb;
+        }
+
+        .btn-don:focus {
+                     border-color: #007bff;
+                     box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+                     outline: none;
+        }
+
+    </style>
+<body>
+    <div class="nav">
+        <h1>ADD USER</h1>
+    </div>
+    <div class="con">
+    <div class="con1">
+        <table>
+            <tr>
+                <td>Name</td>
+                <td><input type="text" class="input-box" id="name" name="name"></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="text" class="input-box" id="email" name="email"></td>
+            </tr>
+            <tr>
+                <td>Phone</td>
+                <td><input type="text" class="input-box" id="phone" name="phone"></td>
+            </tr>
+            <tr>
+                <td>Blood Group</td>
+                <td><input type="text" class="input-box" id="bgrp" name="bgrp"></td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td>Male <input type="radio" name="gender" value="male" class="input-rad" id="Male">
+                Female <input type="radio" name="gender" value="male" class="input-rad" id="Female">
+                Others <input type="radio" name="gender" value="male" class="input-rad" id="Others">
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button class="btn-don">Sign in</button></td>
+            </tr>
+        </table>
+    </div>
+    </div>
+</body>
+</html>

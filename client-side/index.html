@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doner</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .con{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .con1{
+            text-align: center;
+            margin-top: 100px;
+            width: 2000px;
+            height: 500px;
+        }
+        .nav{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-align: center;
+            width: 100%;
+            height: 7vh;
+            line-height: 7vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #8EC5FC;
+            background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+            color: white;
+
+        }
+        .input-box {
+                    margin-left: 20px;
+                    padding: 12px 16px;
+                    border: 1px solid #ccc;
+                    border-radius: 8px;
+                    font-size: 16px;
+                    color: #333;
+                    background-color: #fff;
+                    transition: border-color 0.3s, box-shadow 0.3s;
+                    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+
+        .input-box:focus {
+                     border-color: #007bff;
+                     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+                     outline: none;
+        }
+
+        .input-box::placeholder {
+        color: #aaa;
+        }
+        .btn-edit {
+                    margin-left: 20px;
+                    padding: 12px 16px;
+                    background-color: #f0f0f0;
+                    color: #333;
+                    border: 1px solid #ccc;
+                    border-radius: 8px;
+                    background-color: #ffffff;
+        }
+
+        .btn-edit:hover {
+                    background-color: #008cff;
+                    border-color: #bbb;
+        }
+
+        .btn-edit:focus {
+                     border-color: #007bff;
+                     box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+                     outline: none;
+        }
+        .btn-delete {
+                     margin-left: 20px;
+                    padding: 12px 16px;
+                    background-color: #f0f0f0;
+                    color: #333;
+                    border: 1px solid #ccc;
+                    border-radius: 8px;
+                    background-color: #ffffff;
+        }
+
+        .btn-delete:hover {
+                    background-color: #ff0000;
+                    border-color: #bbb;
+        }
+
+        .btn-delete:focus {
+                     border-color: #007bff;
+                     box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+                     outline: none;
+        }
+
+        .btn-save {
+                     margin-left: 20px;
+                    padding: 12px 16px;
+                    background-color: #f0f0f0;
+                    color: #333;
+                    border: 1px solid #ccc;
+                    border-radius: 8px;
+                    background-color: #ffffff;
+        }
+
+        .btn-save:hover {
+                    background-color: rgb(10, 155, 10);
+                    border-color: #bbb;
+        }
+
+        .btn-save:focus {
+                     border-color: #007bff;
+                     box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+                     outline: none;
+        }
+        .btn-don {
+                    margin-right: 10px;
+                    padding: 12px 16px;
+                    background-color: #f0f0f0;
+                    color: #333;
+                    border: 1px solid #ccc;
+                    border-radius: 8px;
+                    background-color: #ffffff;
+        }
+
+        .btn-don:hover {
+                     background-color: #008cff;
+                    border-color: #bbb;
+        }
+
+        .btn-don:focus {
+                     border-color: #007bff;
+                     box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+                     outline: none;
+        }
+        button{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+       
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <div class="one">
+            <h1>DONERS</h1>
+        </div>
+        <div class="two">
+            <a href="./pages/Add.html"><button class="btn-don">Add Doner</button></a>
+        </div>
+    </div>
+    <div class="con">
+        <div class="con1">
+            <input type="text" name="name" id="name" placeholder="Name" class="input-box">
+            <input type="text" name="email" id="email" placeholder="Email" class="input-box">
+            <input type="text" name="phone" id="phone" placeholder="Phone" class="input-box">
+            <input type="text" name="bgrp" id="bgrp" placeholder="Blood Group" class="input-box">
+            <input type="text" name="gender" id="gender" placeholder="Gender" class="input-box">
+            <button class="btn-edit">Edit</button>
+            <button class="btn-save">Save</button>
+            <button class="btn-delete">Delete</button>
+        </div>
+    </div>
+</body>
+</html>
