@@ -2,7 +2,7 @@ const http = require("http");
 const fs = require("fs");
 const url = require("url");
 const queryString = require("querystring");
-const {MongoClient} = require("momgodb");
+const {MongoClient} = require("mongodb");
 const { Collection } = require("mongodb");
 const client = new MongoClient("mongodb://127.0.0.1:27017/");
 const app = http.createServer((req,res)=>{
@@ -34,7 +34,7 @@ const app = http.createServer((req,res)=>{
         req.on("end",async()=>{
             const formData=queryString.parse(body);
             console.log(formData);
-            Collection.insertOne(formData).then(()=>{
+            collection.insertOne(formData).then(()=>{
                 console.log("sucess");
                 
             })
