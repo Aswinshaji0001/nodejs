@@ -6,6 +6,8 @@ const {MongoClient} = require("momgodb");
 const { Collection } = require("mongodb");
 const client = new MongoClient("mongodb://127.0.0.1:27017/");
 const app = http.createServer((req,res)=>{
+    const db = client.db("BloodDon");
+    const collection = db.collection("doners");
     let path=url.parse(req.url)
     console.log(path);
     console.log(req.method);
