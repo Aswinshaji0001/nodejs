@@ -10,16 +10,17 @@
             padding: 0;
         }
         .con{
-            display: flex;
+           display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
+            width: 100%;
+            height: auto;
+            flex-wrap: wrap;
         }
         .con1{
             text-align: center;
             margin-top: 100px;
-            width: 2000px;
-            height: 500px;
         }
         .nav{
             display: flex;
@@ -156,17 +157,8 @@
             <a href="./pages/Add.html"><button class="btn-don">Add Doner</button></a>
         </div>
     </div>
-    <div class="con">
-        <div class="con1">
-            <input type="text" name="name" id="name" placeholder="Name" class="input-box">
-            <input type="text" name="email" id="email" placeholder="Email" class="input-box">
-            <input type="text" name="phone" id="phone" placeholder="Phone" class="input-box">
-            <input type="text" name="bgrp" id="bgrp" placeholder="Blood Group" class="input-box">
-            <input type="text" name="gender" id="gender" placeholder="Gender" class="input-box">
-            <button class="btn-edit">Edit</button>
-            <button class="btn-save">Save</button>
-            <button class="btn-delete">Delete</button>
-        </div>
+    <div class="con" id="main">
+        
     </div>
     <script src="./js/custom.js"></script>
 </body>

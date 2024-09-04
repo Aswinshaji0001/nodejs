@@ -1,11 +1,13 @@
+const PORT = 3010;
 const http = require("http");
 const fs = require("fs");
 const url = require("url");
 const queryString = require("querystring");
-const {MongoClient} = require("mongodb");
+const {MongoClient, ObjectId} = require("mongodb");
 const { Collection } = require("mongodb");
+const { log } = require("console");
 const client = new MongoClient("mongodb://127.0.0.1:27017/");
-const app = http.createServer((req,res)=>{
+const app = http.createServer(async (req,res)=>{
     const db = client.db("BloodDon");
     const collection = db.collection("doners");
     let path=url.parse(req.url)
@@ -47,5 +49,46 @@ const app = http.createServer((req,res)=>{
         res.writeHead(200,{"Content-Type":"text/html"});
         res.end(fs.readFileSync("../client-side/index.html"));
     }
+    if(path.pathname == "/getdonors" && req.method=="GET"){
+        const data=await collection.find().toArray();
+        const jsonData=JSON.stringify(data);
+        console.log(jsonData);
+        console.log(data);
+        res.writeHead(200,{"Content-Type":"text/json"});
+        res.end(jsonData);
+        
+    }
+    if(path.pathname=="/delete" && req.method=="DELETE"){
+        console.log("reached delete route");
+        let body="";
+        req.on("data",(chunks)=>{
+            body+=chunks.toString();
+            console.log(body);
+            
+        })
+        req.on("end",async()=>{
+            let _id= new ObjectId(body)
+            console.log(_id);
+            collection.deleteOne({_id}).then(()=>{
+                res.writeHead(200,{"Content-Type":"text/plain"});
+                res.end("success")
+            }).catch(()=>{
+                res.writeHead(200,{"Content-Type":"text/plain"});
+                res.end("Fail")
+            })
+            
+        })
+        
+    }
 });
-app.listen(3008);
+client.connect().then(()=>{
+    console.log("database connected");
+    app.listen(PORT,()=>{
+        console.log(`server created http://localhost:${PORT}`);
+        
+    });
+    
+}).catch((error)=>{
+    console.log(error);
+    
+})
