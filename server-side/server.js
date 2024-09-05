@@ -1,4 +1,4 @@
-const PORT = 3010;
+const PORT = 3017;
 const http = require("http");
 const fs = require("fs");
 const url = require("url");
@@ -79,6 +79,34 @@ const app = http.createServer(async (req,res)=>{
             
         })
         
+    }
+    if(req.method=="PUT" && path.pathname=="/update"){
+        console.log("reached update route ");
+        let body="";
+        req.on("data",(chunks)=>{
+            body+=chunks.toString();
+            console.log(body);
+            
+        })
+        req.on("end",async()=>{
+            let data = JSON.parse(body);
+            let _id= new ObjectId(data.id);
+            let updateData={
+                name:data.name,
+                email:data.email,
+                phone:data.phone,
+                bgrp:data.bgrp,
+                gender:data.gender
+
+            }
+            await collection.updateOne({_id},{set:updateData}).then(()=>{
+                res.writeHead(200,{"Content-Type":"text/plain"});
+                res.end("success")
+            }).catch(()=>{
+                res.writeHead(400,{"Content-Type":"text/plain"});
+                res.end("failed")
+            })
+        })
     }
 });
 client.connect().then(()=>{
