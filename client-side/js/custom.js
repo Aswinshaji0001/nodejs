@@ -1,6 +1,6 @@
 async function  getDonor(){
 
-    const res= fetch("http://localhost:3017/getdonors")
+    const res= fetch("http://localhost:3018/getdonors")
     const data = await (await res).json();
     str=``
     data.map((dt)=>{
@@ -33,7 +33,7 @@ async function handleEdit(id){
 }
 
 async function handleDelete(id) {
-    const res = await fetch("http://localhost:3017/delete",{
+    const res = await fetch("http://localhost:3018/delete",{
         method:"DELETE",
         headers:{"ContentType":"text/plain"},
         "body":id
@@ -59,7 +59,7 @@ async function handleSave(id){
     let data = {id,name,email,phone,bgrp,gender};
     console.log(data);
     const jsonData=JSON.stringify(data);
-    const res = await fetch("http://localhost:3017/update",{
+    const res = await fetch("http://localhost:3018/update",{
         "method":"put",
         "Content-Type":"text/json",
         "body":jsonData

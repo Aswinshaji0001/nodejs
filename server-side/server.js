@@ -1,4 +1,4 @@
-const PORT = 3017;
+const PORT = 3018;
 const http = require("http");
 const fs = require("fs");
 const url = require("url");
@@ -90,6 +90,7 @@ const app = http.createServer(async (req,res)=>{
         })
         req.on("end",async()=>{
             let data = JSON.parse(body);
+            console.log(data);
             let _id= new ObjectId(data.id);
             let updateData={
                 name:data.name,
@@ -99,7 +100,7 @@ const app = http.createServer(async (req,res)=>{
                 gender:data.gender
 
             }
-            await collection.updateOne({_id},{set:updateData}).then(()=>{
+            await collection.updateOne({_id},{$set:updateData}).then(()=>{
                 res.writeHead(200,{"Content-Type":"text/plain"});
                 res.end("success")
             }).catch(()=>{
