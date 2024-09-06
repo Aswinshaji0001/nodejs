@@ -1,5 +1,5 @@
+let arr=[];
 async function  getDonor(){
-
     const res= fetch("http://localhost:3018/getdonors")
     const data = await (await res).json();
     str=``
@@ -14,6 +14,7 @@ async function  getDonor(){
             <button class="btn-save" onclick="handleSave('${dt._id}')">Save</button>
             <button class="btn-delete" onclick="handleDelete('${dt._id}')">Delete</button>
         </div>`
+        arr.push(dt);
     })
     document.getElementById("main").innerHTML=str;
 }
@@ -75,5 +76,22 @@ async function handleSave(id){
         alert("not updated")
     } 
 }
+document.getElementById("search").addEventListener('keyup',(e)=>{
+    str=``;
+    arr.filter((i)=>i.name.toLowerCase().includes(e.target.value.toLowerCase())).map((dt)=>{
+        str+=`<div class="con1">
+            <input type="text" name="name"  disabled="true" value=${dt.name} id="name-${dt._id}" placeholder="Name" class="input-box">
+            <input type="text" name="email"  disabled="true" value=${dt.email} id="email-${dt._id}" placeholder="Email" class="input-box">
+            <input type="text" name="phone"  disabled="true" value=${dt.phone} id="phone-${dt._id}" placeholder="Phone" class="input-box">
+            <input type="text" name="bgrp"   disabled="true" value=${dt.bgrp} id="bgrp-${dt._id}" placeholder="Blood Group" class="input-box">
+            <input type="text" name="gender"   disabled="true" value=${dt.gender} id="gender-${dt._id}" placeholder="Gender" class="input-box">
+            <button class="btn-edit" onclick="handleEdit('${dt._id}')">Edit</button>
+            <button class="btn-save" onclick="handleSave('${dt._id}')">Save</button>
+            <button class="btn-delete" onclick="handleDelete('${dt._id}')">Delete</button>
+        </div>`
+    })
+    document.getElementById("main").innerHTML=str;
+
+})
 
 
